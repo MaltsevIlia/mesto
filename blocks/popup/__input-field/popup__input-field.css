@@ -1,0 +1,21 @@
+.popup__input-field {
+  border: none;
+  max-width: 358px;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, .2);
+
+  padding: 0;
+  max-height: 27px;
+  margin: 0;
+}
+
+.popup__input-field:last-of-type {
+  margin: 39px 0 0 0;
+}
+
+.popup__input-field::placeholder {
+  color: rgba(0, 0, 0, 1);
+  font-size: 14px;
+  line-height: 400;
+  font-weight: 400;
+}

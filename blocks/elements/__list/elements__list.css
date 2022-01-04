@@ -1,0 +1,23 @@
+.elements__list {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: 282px 282px 282px;
+  grid-template-rows: auto auto;
+  gap: 20px 17px;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 920px) {
+  .elements__list {
+    grid-template-columns: 282px 282px;
+    grid-template-rows: auto auto auto;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .elements__list {
+    grid-template-columns: 282px;
+    grid-template-rows: auto;
+  }
+}

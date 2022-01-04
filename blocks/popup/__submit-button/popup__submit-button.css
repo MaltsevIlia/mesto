@@ -1,0 +1,16 @@
+.popup__submit-button {
+  max-width: 358px;
+  height: 50px;
+  width: 100%;
+  background-image: url(../../../images/submit-button.svg);
+  padding: 0;
+  border: none;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, .25);
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+.popup__submit-button:hover {
+  background-image: url(../../../images/submit-button-hover.svg);
+}
+

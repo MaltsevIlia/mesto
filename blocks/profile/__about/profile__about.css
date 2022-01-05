@@ -3,6 +3,8 @@
   line-height: auto;
   font-weight: 400;
   margin: 0;
+  display: inline-block;
+  align-self: start;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

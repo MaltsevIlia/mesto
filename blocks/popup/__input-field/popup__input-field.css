@@ -5,16 +5,16 @@
   border-bottom: 1px solid rgba(0, 0, 0, .2);
   padding: 0;
   height: 27px;
+  box-sizing: border-box;
   margin: 0;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1;
+  font-weight: 400;
 }
 
 .popup__input-field::placeholder {
   color: rgba(0, 0, 0, 1);
-  font-size: 14px;
-  letter-spacing: 0;
-  line-height: 17px;
-  font-weight: 400;
-  vertical-align: 100%;
 }
 
 .popup__input-field:last-of-type {

@@ -12,10 +12,6 @@ closePopupButton.addEventListener('click', function() {
   overlay.classList.remove(popupOpened);
 })
 
-overlay.addEventListener('click', function() {
-  overlay.classList.remove(popupOpened);
-})
-
 document.addEventListener('keydown', function(event) {
   if (event.code === 'Escape') {
     overlay.classList.remove(popupOpened);
@@ -36,6 +32,20 @@ function profileChange () {
 profileSave.addEventListener('click', function() {
   profileChange();
   overlay.classList.remove(popupOpened);
+})
+
+inputName.addEventListener('keydown', function(event) {
+  if (event.code === 'Enter') {
+    profileChange();
+    overlay.classList.remove(popupOpened);
+  }
+})
+
+inputAbout.addEventListener('keydown', function(event) {
+  if (event.code === 'Enter') {
+    profileChange();
+    overlay.classList.remove(popupOpened);
+  }
 })
 
 let likeButton = document.querySelectorAll('.element__like');

@@ -11,11 +11,7 @@ openPopupButton.addEventListener('click', function(event) {
 closePopupButton.addEventListener('click', function() {
   overlay.classList.remove(popupOpened);
 })
-/*
-overlay.addEventListener('click', function() {
-  overlay.classList.remove(popupOpened);
-})
-*/
+
 document.addEventListener('keydown', function(event) {
   if (event.code === 'Escape') {
     overlay.classList.remove(popupOpened);
@@ -38,25 +34,28 @@ profileSave.addEventListener('click', function() {
   overlay.classList.remove(popupOpened);
 })
 
-let likeButton = document.querySelectorAll('.element__like');
-const likeButtonActive = 'element__like_active';
-
-/*
-for (var i = 0; i < likeButton.length; i++) {
-  likeButton.addEventListener('click', function(event) {
-    event.preventDefault();
-    likeButton.classList.toggle(likeButtonActive);
-  })
-}
-*/
-/*
-likeButton.onclick = function() {
-  likeButton.classList.toggle(likeButtonActive);
-}
-*/
-
-likeButton.addEventListener('click', function(event) {
-  event.preventDefault();
-  likeButton.classList.toggle(likeButtonActive);
+inputName.addEventListener('keydown', function(event) {
+  if (event.code === 'Enter') {
+    profileChange();
+    overlay.classList.remove(popupOpened);
+  }
 })
 
+inputAbout.addEventListener('keydown', function(event) {
+  if (event.code === 'Enter') {
+    profileChange();
+    overlay.classList.remove(popupOpened);
+  }
+})
+
+let likeButton = document.querySelectorAll('.element__like');
+const likeButtonActive = 'element__like_active';
+let likeButtonArray = Array.prototype.slice.call(likeButton)
+
+
+for (let i = 0; i < likeButtonArray.length; ++i) {
+  likeButtonArray[i].addEventListener('click', function(event) {
+    event.preventDefault();
+    likeButtonArray[i].classList.toggle(likeButtonActive);
+  })
+}

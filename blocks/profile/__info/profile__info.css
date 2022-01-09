@@ -11,6 +11,6 @@
     grid-template-columns: 24px minmax(min-content, max-content) 24px;
     grid-template-rows: minmax(min-content, max-content) auto;
     margin-top: 26px;
-    gap: 14px 10px;
+    gap: 12px 10px;
   }
 }

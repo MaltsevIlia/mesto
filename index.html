@@ -14,11 +14,11 @@
     <section class="profile">
       <img class="profile__avatar" src="./images/jacques-yves-cousteau.jpg" alt="аватар профиля">
       <div class="profile__info">
-        <p class="profile__name">Жак-Ив Кусто</p>
-        <button class="profile__edit-button"></button>
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <button class="profile__edit-button" type="button"></button>
         <p class="profile__about">Исследователь океана</p>
       </div>
-      <button class="profile__add-button"></button>
+      <button class="profile__add-button" type="submit"></button>
     </section>
     <section class="elements">
       <ul class="elements__list">
@@ -26,8 +26,8 @@
           <div class="element__figure">
           <img class="element__image" src="./images/olga-bast-kamchatka-unsplash.jpg" alt="вид Камчатки">
           <div class="element__image-caption">
-            <p class="element__image-title">Камчатка</p>
-            <button class="element__like"></button>
+            <h2 class="element__image-title">Камчатка</h2>
+            <button class="element__like" type="button"></button>
           </div>
           </div>
         </li>
@@ -35,8 +35,8 @@
           <div class="element__figure">
           <img class="element__image" src="./images/philipp-trubchenko-baikal-unsplash.jpg" alt="вид на Байкал">
           <div class="element__image-caption">
-            <p class="element__image-title">Байкал</p>
-            <button class="element__like"></button>
+            <h2 class="element__image-title">Байкал</h2>
+            <button class="element__like" type="button"></button>
           </div>
           </div>
         </li>
@@ -44,8 +44,8 @@
           <div class="element__figure">
           <img class="element__image" src="./images/alex-glebov-kamchatka-unsplash.jpg" alt="вид Камчатки">
           <div class="element__image-caption">
-            <p class="element__image-title">Камчатка</p>
-            <button class="element__like"></button>
+            <h2 class="element__image-title">Камчатка</h2>
+            <button class="element__like" type="button"></button>
           </div>
           </div>
         </li>
@@ -53,8 +53,8 @@
           <div class="element__figure">
           <img class="element__image" src="./images/daniil-silantev-khrebet-nurgush-unsplash.jpg" alt="вид на хребет Нургуш">
           <div class="element__image-caption">
-            <p class="element__image-title">Хребет Нургуш</p>
-            <button class="element__like"></button>
+            <h2 class="element__image-title">Хребет Нургуш</h2>
+            <button class="element__like" type="button"></button>
           </div>
           </div>
         </li>
@@ -62,8 +62,8 @@
           <div class="element__figure">
           <img class="element__image" src="./images/vladimir-fedotov-onega-lake-unsplash.jpg" alt="вид на Онежское озеро">
           <div class="element__image-caption">
-            <p class="element__image-title">Онежское озеро</p>
-            <button class="element__like"></button>
+            <h2 class="element__image-title">Онежское озеро</h2>
+            <button class="element__like" type="button"></button>
           </div>
           </div>
         </li>
@@ -71,28 +71,28 @@
           <div class="element__figure">
           <img class="element__image" src="./images/xenia-mechanic-zhigalanskie-vodopady-unsplash.jpg" alt="вид на Жигаланские водопады">
           <div class="element__image-caption">
-            <p class="element__image-title">Жигаланские водопады</p>
-            <button class="element__like"></button>
+            <h2 class="element__image-title">Жигаланские водопады</h2>
+            <button class="element__like" type="button"></button>
           </div>
           </div>
         </li>
       </ul>
     </section>
-    <section class="popup">
-      <div class="popup__container">
-        <h2 class="popup__heading">Редактировать профиль</h2>
-        <div class="popup__input">
-          <input type="text" placeholder="Жак-Ив Кусто" value="" class="popup__input-field popup__input-field_name">
-          <input type="text" placeholder="Исследователь океана" value="" class="popup__input-field popup__input-field_about">
-        </div>
-        <button class="popup__close-button"></button>
-        <button class="popup__submit-button"></button>
-      </div>
-    </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
   </footer>
+  <div class="popup">
+    <div class="popup__container">
+      <h2 class="popup__heading">Редактировать профиль</h2>
+      <form class="popup__input-fields">
+        <input type="text" placeholder="Жак-Ив Кусто" name="name" value="" class="popup__input-field">
+        <input type="text" placeholder="Исследователь океана" name="about" value="" class="popup__input-field">
+        <button class="popup__submit-button" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__close-button" type="reset"></button>
+    </div>
+  </div>
   <script src="./script.js"></script>
 </body>
 </html>

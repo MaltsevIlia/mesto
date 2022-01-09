@@ -2,16 +2,29 @@
   max-width: 358px;
   height: 50px;
   width: 100%;
-  background-image: url(../../../images/submit-button.svg);
+  background-color: #000;
   padding: 0;
   border: none;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  color: #fff;
   cursor: pointer;
   border-radius: 2px;
   background-position: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  align-self: center;
 }
 
 .popup__submit-button:hover {
-  background-image: url(../../../images/submit-button-hover.svg);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: .8;
 }
 
+@media screen and (max-width: 640px) {
+  .popup__submit-button {
+    max-width: 238px;
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

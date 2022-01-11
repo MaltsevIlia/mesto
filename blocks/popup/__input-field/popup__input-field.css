@@ -3,8 +3,8 @@
   max-width: 358px;
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, .2);
-  padding: 18px 0;
-  height: 27px;
+  padding: 4px 0;
+  height: 36px;
   box-sizing: border-box;
   margin: 0;
   font-size: 14px;
@@ -18,7 +18,14 @@
 }
 
 .popup__input-field:last-of-type {
-  margin: 34px 0 44px 0;
+  margin: 22px 0 48px 0;
+}
+
+@media screen and (max-width: 640px) {
+  .popup__input-field:last-of-type {
+    margin-top: 20px;
+    margin-bottom: 46px;
+  }
 }
 
 

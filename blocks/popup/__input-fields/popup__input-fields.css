@@ -3,6 +3,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 28px 0 0 0;
+  margin: 38px 0 0 0;
   padding: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .popup__input-fields {
+    margin-top: 67px;
+  }
 }

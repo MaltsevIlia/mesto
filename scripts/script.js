@@ -8,24 +8,26 @@ const form = document.querySelector('.popup__input-fields');
 let inputName = form.elements['name'];
 let inputAbout = form.elements['about'];
 
-openPopupButton.addEventListener('click', function(event) {
+function closePopup(event) {
+  overlay.classList.remove(popupOpened);
+}
+
+function openPopup(event) {
   event.preventDefault();
   inputName.value = profileName.textContent;
   inputAbout.value = profileAbout.textContent;
   overlay.classList.add(popupOpened);
-})
-
-closePopupButton.addEventListener('click', function() {
-  overlay.classList.remove(popupOpened);
-})
-
-function profileChange() {
-  profileName.textContent = inputName.value;
-  profileAbout.textContent = inputAbout.value;
 }
 
-form.addEventListener('submit', function(event) {
+function profileChange(event) {
   event.preventDefault();
-  profileChange();
-  overlay.classList.remove(popupOpened);
-});
+  profileName.textContent = inputName.value;
+  profileAbout.textContent = inputAbout.value;
+  closePopup();
+}
+
+openPopupButton.addEventListener('click', openPopup)
+
+closePopupButton.addEventListener('click', closePopup)
+
+form.addEventListener('submit', profileChange);

@@ -24,7 +24,6 @@ const likeButtonActive = 'element__like_active';
 let likeButtonArray = Array.prototype.slice.call(likeButton);
 //темплейт
 const templateCards = document.querySelector('#place-card').content.querySelector('.element__image-title');
-
 const cardsWrap = document.querySelector('.elements__list');
 
 const initialCards = [

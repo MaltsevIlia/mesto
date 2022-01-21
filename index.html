@@ -22,67 +22,13 @@
     </section>
     <section class="elements">
       <ul class="elements__list">
-        <li class="element">
-          <div class="element__figure">
-          <img class="element__image" src="./images/olga-bast-kamchatka-unsplash.jpg" alt="вид Камчатки">
-          <div class="element__image-caption">
-            <h2 class="element__image-title">Камчатка</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          </div>
-        </li>
-        <li class="element">
-          <div class="element__figure">
-          <img class="element__image" src="./images/philipp-trubchenko-baikal-unsplash.jpg" alt="вид на Байкал">
-          <div class="element__image-caption">
-            <h2 class="element__image-title">Байкал</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          </div>
-        </li>
-        <li class="element">
-          <div class="element__figure">
-          <img class="element__image" src="./images/alex-glebov-kamchatka-unsplash.jpg" alt="вид Камчатки">
-          <div class="element__image-caption">
-            <h2 class="element__image-title">Камчатка</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          </div>
-        </li>
-        <li class="element">
-          <div class="element__figure">
-          <img class="element__image" src="./images/daniil-silantev-khrebet-nurgush-unsplash.jpg" alt="вид на хребет Нургуш">
-          <div class="element__image-caption">
-            <h2 class="element__image-title">Хребет Нургуш</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          </div>
-        </li>
-        <li class="element">
-          <div class="element__figure">
-          <img class="element__image" src="./images/vladimir-fedotov-onega-lake-unsplash.jpg" alt="вид на Онежское озеро">
-          <div class="element__image-caption">
-            <h2 class="element__image-title">Онежское озеро</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          </div>
-        </li>
-        <li class="element">
-          <div class="element__figure">
-          <img class="element__image" src="./images/xenia-mechanic-zhigalanskie-vodopady-unsplash.jpg" alt="вид на Жигаланские водопады">
-          <div class="element__image-caption">
-            <h2 class="element__image-title">Жигаланские водопады</h2>
-            <button class="element__like" type="button"></button>
-          </div>
-          </div>
-        </li>
       </ul>
     </section>
   </main>
   <footer class="footer">
     <p class="footer__copyright">&copy; 2021 Mesto Russia</p>
   </footer>
-  <div class="popup">
+  <div class="popup popup__profile">
     <div class="popup__container">
       <h2 class="popup__heading">Редактировать профиль</h2>
       <form class="popup__input-fields" name="popup-form">
@@ -93,7 +39,7 @@
       <button class="popup__close-button" type="button"></button>
     </div>
   </div>
-  <div class="popup">
+  <div class="popup popup__place">
     <div class="popup__container">
       <h2 class="popup__heading">Новое место</h2>
       <form class="popup__input-fields" name="popup-form">
@@ -104,6 +50,17 @@
       <button class="popup__close-button" type="button"></button>
     </div>
   </div>
+  <template id="place-card">
+    <li class="element">
+      <div class="element__figure">
+      <img class="element__image" src="" alt="">
+      <div class="element__image-caption">
+        <h2 class="element__image-title"></h2>
+        <button class="element__like" type="button"></button>
+      </div>
+      </div>
+    </li>
+  </template>
   <script src="./scripts/script.js"></script>
 </body>
 </html>

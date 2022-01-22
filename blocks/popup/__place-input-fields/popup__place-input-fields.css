@@ -1,4 +1,4 @@
-.popup__input-fields {
+.popup__place-input-fields {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,7 @@
 }
 
 @media screen and (max-width: 640px) {
-  .popup__input-fields {
+  .popup__place-input-fields {
     margin-top: 67px;
   }
 }

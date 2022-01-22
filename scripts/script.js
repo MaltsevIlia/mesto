@@ -12,13 +12,14 @@ let profileAbout = document.querySelector('.profile__about');
 let place = document.querySelector('.element__image-title');
 let link = document.querySelector('.element__image');
 //постоянная для форм
-const form = document.querySelector('.popup__input-fields');
+const profileForm = document.querySelector('.popup__profile-input-fields');
+const placeForm = document.querySelector('.popup__place-input-fields');
 // инпуты для профиля
-let inputName = form.elements['name'];
-let inputAbout = form.elements['about'];
+let inputName = profileForm.elements['name'];
+let inputAbout = profileForm.elements['about'];
 // инпуты для карточек с картинками
-let inputPlace = form.elements['place'];
-let inputLink = form.elements['link'];
+let inputPlace = placeForm.elements['place'];
+let inputLink = placeForm.elements['link'];
 //переменные для лайка
 let likeButton = document.querySelectorAll('.element__like');
 const likeButtonActive = 'element__like_active';
@@ -72,29 +73,23 @@ function defaultCards () {
     cardsWrap.append(cardContent);
   }
 }
-
 defaultCards ();
 
-const renderCards = (item) => {
-  const cards = templateCards.cloneNode(true);
-  /*const cardTitle = cards.querySelector(.element__image-title);
-  const cardImage = cards.querySelector(.element__image);*/
-
+//добавление карточек через попап
+function addCardThroughPopup(event) {
+  event.preventDefault;
+  place.textContent = inputPlace.value;
+  link.src = inputLink.value;
+  const cardContent = newCard(inputPlace.value, inputLink.value)
+  cardsWrap.prepend(cardContent);
 }
 
-initialCards.forEach(item => {
-  renderCards(item, cardsWrap)
-})
-
-//функция добавления карточек через массив и темплейт
-
-
-
-
+//закрыть попап профиля
 function closeProfilePopup(event) {
   overlayProfile.classList.remove(popupOpened);
 }
 
+//закрыть попап добавления карточки
 function closePlacePopup(event) {
   overlayAddPic.classList.remove(popupOpened);
 }
@@ -126,7 +121,7 @@ closeProfilePopupButton.addEventListener('click', closeProfilePopup);
 
 closePlacePopupButton.addEventListener('click', closePlacePopup);
 
-form.addEventListener('submit', profileChange);
+profileForm.addEventListener('submit', profileChange);
 
 /*функция проставки лайка*/
 for (let i = 0; i < likeButtonArray.length; ++i) {

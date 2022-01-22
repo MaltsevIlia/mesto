@@ -1,0 +1,29 @@
+.popup__profile-submit-button {
+  max-width: 358px;
+  height: 50px;
+  width: 100%;
+  background-color: #000;
+  padding: 0;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 2px;
+  background-position: center;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  align-self: center;
+}
+
+.popup__profile-submit-button:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 640px) {
+  .popup__profile-submit-button {
+    max-width: 238px;
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

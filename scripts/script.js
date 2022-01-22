@@ -1,5 +1,6 @@
 //глобальные постоянные
-const closePopupButton = document.querySelectorAll('.popup__close-button'); //создается псевдомассив, к нему не применяются слушатели
+const closeProfilePopupButton = document.querySelector('.popup__profile-close-button');
+const closePlacePopupButton = document.querySelector('.popup__place-close-button');
 const openProfilePopupButton = document.querySelector('.profile__edit-button');
 const openAddPicPopupButton = document.querySelector('.profile__add-button')
 const overlayProfile = document.querySelector('.popup__profile');
@@ -23,7 +24,7 @@ let likeButton = document.querySelectorAll('.element__like');
 const likeButtonActive = 'element__like_active';
 let likeButtonArray = Array.prototype.slice.call(likeButton);
 //темплейт
-const templateCards = document.querySelector('#place-card').content.querySelector('.element__image-title');
+const templateCards = document.querySelector('#place-card').content;
 const cardsWrap = document.querySelector('.elements__list');
 
 const initialCards = [
@@ -52,6 +53,27 @@ const initialCards = [
     link: './images/xenia-mechanic-zhigalanskie-vodopady-unsplash.jpg'
   }
 ];
+//добавление карточек
+function newCard(name, link) {
+  let cardContent = templateCards.cloneNode(true);
+  cardContent.querySelector('.element__image-title').textContent = name;
+  cardContent.querySelector('.element__image').src = link;
+  return cardContent;
+}
+
+//добавление начальных карточек
+function defaultCards () {
+  for (let i = 0; i < initialCards.length; i++) {
+    const card = initialCards[i];
+    const cardName = card.name;
+    const cardImageLink = card.link;
+    const cardContent = newCard(cardName, cardImageLink);
+    newCard(cardName, cardImageLink);
+    cardsWrap.append(cardContent);
+  }
+}
+
+defaultCards ();
 
 const renderCards = (item) => {
   const cards = templateCards.cloneNode(true);
@@ -68,20 +90,14 @@ initialCards.forEach(item => {
 
 
 
-/*
+
 function closeProfilePopup(event) {
   overlayProfile.classList.remove(popupOpened);
 }
 
-function closeAddPicPopup(event) {
+function closePlacePopup(event) {
   overlayAddPic.classList.remove(popupOpened);
 }
-*/
-
-closePopupButton.forEach((event) => {
-  overlayProfile.classList.remove(popupOpened);
-  overlayAddPic.classList.remove(popupOpened);
-})
 
 function openProfilePopup(event) {
   event.preventDefault();
@@ -92,8 +108,6 @@ function openProfilePopup(event) {
 
 function openAddPicPopup(event) {
   event.preventDefault();
-  /*inputPlace.value = place.textContent;*/
-  /*inputLink.value = link.textContent;*/
   overlayAddPic.classList.add(popupOpened);
 }
 
@@ -108,9 +122,9 @@ openProfilePopupButton.addEventListener('click', openProfilePopup);
 
 openAddPicPopupButton.addEventListener('click', openAddPicPopup);
 
-closePopupButton.addEventListener('click', closeProfilePopup);
+closeProfilePopupButton.addEventListener('click', closeProfilePopup);
 
-closePopupButton.addEventListener('click', closeAddPicPopup);
+closePlacePopupButton.addEventListener('click', closePlacePopup);
 
 form.addEventListener('submit', profileChange);
 

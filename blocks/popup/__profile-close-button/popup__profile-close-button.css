@@ -1,4 +1,4 @@
-.popup__close-button {
+.popup__profile-close-button {
   position: absolute;
   top: -40px;
   right: -40px;
@@ -12,12 +12,12 @@
   padding: 0;
 }
 
-.popup__close-button:hover {
+.popup__profile-close-button:hover {
   opacity: .6;
 }
 
 @media screen and (max-width: 640px) {
-  .popup__close-button {
+  .popup__profile-close-button {
     top: -44px;
     right: -5px;
     transform: scale(0.625);

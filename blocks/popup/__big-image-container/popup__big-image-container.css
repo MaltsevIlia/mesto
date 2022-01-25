@@ -1,0 +1,9 @@
+.popup__big-image-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  max-width: 75vh;
+  max-height: 75vh;
+  position: relative;
+  object-fit: contain;
+}

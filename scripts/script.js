@@ -5,12 +5,13 @@ const openProfilePopupButton = document.querySelector('.profile__edit-button');
 const openAddPicPopupButton = document.querySelector('.profile__add-button')
 const overlayProfile = document.querySelector('.popup__profile');
 const overlayAddPic = document.querySelector('.popup__place');
+const overlayImage = document.querySelector('.popup__big-image');
 const popupOpened = 'popup_opened';
 //переменные для разметки профиля и карточек
 let profileName = document.querySelector('.profile__name');
 let profileAbout = document.querySelector('.profile__about');
 let place = document.querySelector('.element__image-title');
-let link = document.querySelector('.element__image');
+let imgLink = document.querySelector('.element__image');
 //постоянная для форм
 const profileForm = document.querySelector('.popup__profile-input-fields');
 const placeForm = document.querySelector('.popup__place-input-fields');
@@ -20,10 +21,7 @@ let inputAbout = profileForm.elements['about'];
 // инпуты для карточек с картинками
 let inputPlace = placeForm.elements['place'];
 let inputLink = placeForm.elements['link'];
-//переменные для лайка
-let likeButton = document.querySelectorAll('.element__like');
-const likeButtonActive = 'element__like_active';
-let likeButtonArray = Array.prototype.slice.call(likeButton);
+
 //темплейт
 const templateCards = document.querySelector('#place-card').content;
 const cardsWrap = document.querySelector('.elements__list');
@@ -52,9 +50,9 @@ const initialCards = [
   {
     name: 'Жигаланские водопады',
     link: './images/xenia-mechanic-zhigalanskie-vodopady-unsplash.jpg'
-  }
+  },
 ];
-//добавление карточек
+
 function newCard(name, link) {
   let cardContent = templateCards.cloneNode(true);
   cardContent.querySelector('.element__image-title').textContent = name;
@@ -62,7 +60,6 @@ function newCard(name, link) {
   return cardContent;
 }
 
-//добавление начальных карточек
 function defaultCards () {
   for (let i = 0; i < initialCards.length; i++) {
     const card = initialCards[i];
@@ -75,14 +72,16 @@ function defaultCards () {
 }
 defaultCards ();
 
-//добавление карточек через попап
-function addCardThroughPopup(event) {
-  event.preventDefault;
-  place.textContent = inputPlace.value;
-  link.src = inputLink.value;
-  const cardContent = newCard(inputPlace.value, inputLink.value)
+function addCard (event) {
+  event.preventDefault();
+  const cardName = inputPlace.value;
+  const cardImageLink = inputLink.value;
+  cardContent = newCard(cardName, cardImageLink);
   cardsWrap.prepend(cardContent);
+  closePlacePopup();
 }
+
+const image = document.querySelectorAll('.element__image');
 
 //закрыть попап профиля
 function closeProfilePopup(event) {
@@ -92,6 +91,10 @@ function closeProfilePopup(event) {
 //закрыть попап добавления карточки
 function closePlacePopup(event) {
   overlayAddPic.classList.remove(popupOpened);
+}
+
+function closeImagePopup(event) {
+  overlayImage.classList.remove(popupOpened);
 }
 
 function openProfilePopup(event) {
@@ -110,8 +113,29 @@ function profileChange(event) {
   event.preventDefault();
   profileName.textContent = inputName.value;
   profileAbout.textContent = inputAbout.value;
-  closePopup();
+  closeProfilePopup();
 }
+
+function openPicturePopup(event) {
+  overlayImage.classList.add(popupOpened);
+}
+
+//открытие попапа с большой картинкой
+const handleImageClick = (event) => {
+  const imageClicked = event.target;
+  const imgUrl = imageClicked.src;
+  const popupImage = document.querySelector('.popup__image');
+  popupImage.src = imgUrl;
+  const popupCaption = document.querySelector('.popup__image-title');
+  popupCaption.textContent = imageClicked.nextElementSibling.textContent;
+  openPicturePopup();
+}
+
+image.forEach((item) => {
+  item.addEventListener('click', handleImageClick);
+});
+
+const closeImagePopupButton = document.querySelector('.popup__image-close-button');
 
 openProfilePopupButton.addEventListener('click', openProfilePopup);
 
@@ -121,12 +145,32 @@ closeProfilePopupButton.addEventListener('click', closeProfilePopup);
 
 closePlacePopupButton.addEventListener('click', closePlacePopup);
 
+closeImagePopupButton.addEventListener('click', closeImagePopup);
+
 profileForm.addEventListener('submit', profileChange);
 
+placeForm.addEventListener('submit', addCard);
+
+
+//переменные для лайка
+let likeButton = document.querySelectorAll('.element__like');
+const likeButtonActive = 'element__like_active';
+let likeButtonArray = Array.prototype.slice.call(likeButton);
 /*функция проставки лайка*/
+
 for (let i = 0; i < likeButtonArray.length; ++i) {
   likeButtonArray[i].addEventListener('click', function(event) {
     event.preventDefault();
     likeButtonArray[i].classList.toggle(likeButtonActive);
   })
 };
+
+/*
+function like(event) {
+  likeButton.classList.toggle(likeButtonActive);
+}
+
+likeButton.forEach((item) => {
+  item.addEventListener('click', like);
+});
+*/

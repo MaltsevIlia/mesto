@@ -14,7 +14,7 @@
 }
 
 .popup__input-field::placeholder {
-  color: rgba(0, 0, 0, 1);
+  color: rgba(196, 196, 196, 1);
 }
 
 .popup__input-field:last-of-type {

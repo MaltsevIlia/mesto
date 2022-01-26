@@ -157,14 +157,6 @@ let likeButton = document.querySelectorAll('.element__like');
 const likeButtonActive = 'element__like_active';
 let likeButtonArray = Array.prototype.slice.call(likeButton);
 
-//функция проставки лайка
-for (let i = 0; i < likeButtonArray.length; ++i) {
-  likeButtonArray[i].addEventListener('click', function(event) {
-    event.preventDefault();
-    likeButtonArray[i].classList.toggle(likeButtonActive);
-  })
-};
-
 //функция удаления картинки
 function deleteCard (event) {
   const deleteButton = event.target;
@@ -177,12 +169,13 @@ deleteButton.forEach((item) => {
   item.addEventListener('click', deleteCard);
 });
 
-/*
+//функция проставки лайка
 function like(event) {
+  const likeButton = event.target;
   likeButton.classList.toggle(likeButtonActive);
 }
 
 likeButton.forEach((item) => {
   item.addEventListener('click', like);
 });
-*/
+

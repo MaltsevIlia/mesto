@@ -3,9 +3,9 @@ const closeProfilePopupButton = document.querySelector('.popup__profile-close-bu
 const closePlacePopupButton = document.querySelector('.popup__place-close-button');
 const openProfilePopupButton = document.querySelector('.profile__edit-button');
 const openAddPicPopupButton = document.querySelector('.profile__add-button')
-const overlayProfile = document.querySelector('.popup__profile');
-const overlayAddPic = document.querySelector('.popup__place');
-const overlayImage = document.querySelector('.popup__big-image');
+const overlayProfile = document.querySelector('.popup_type_profile');
+const overlayAddPic = document.querySelector('.popup_type_place');
+const overlayImage = document.querySelector('.popup_type_big-image');
 const popupOpened = 'popup_opened';
 //переменные разметки профиля и карточек
 let profileName = document.querySelector('.profile__name');

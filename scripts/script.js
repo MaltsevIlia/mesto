@@ -89,14 +89,13 @@ function closePopup(popupType) {
 
 //функция инициализации карточек
 function getCardElement(name, link) {
-  let cardContent = templateCards.cloneNode(true);
+  const cardContent = templateCards.cloneNode(true);
   cardContent.querySelector('.element__image-title').textContent = name;
   cardContent.querySelector('.element__image').src = link;
   cardContent.querySelector('.element__image').alt = name;
   cardContent.querySelector('.element__image').addEventListener('click', handleImageClick);
   cardContent.querySelector('.element__like').addEventListener('click', like);
   cardContent.querySelector('.element__delete').addEventListener('click', deleteCard);
-  cardContent.querySelector('.element__image').addEventListener('click', () => openPopup(overlayImage));
   return cardContent;
 }
 //функция добавления карточки в контейнер
@@ -139,6 +138,5 @@ closePlacePopupButton.addEventListener('click', () => closePopup(overlayAddPic))
 closeImagePopupButton.addEventListener('click', () => closePopup(overlayImage));
 profileForm.addEventListener('submit', profileChange);
 placeForm.addEventListener('submit', addCard);
-
 
 defaultCards ();

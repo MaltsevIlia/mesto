@@ -4,7 +4,7 @@
   font-size: 12px;
   line-height: 15px;
   margin: 5px 0 0 0;
-  height: 12px;
+  min-height: 12px;
   align-self: flex-start;
 }
 

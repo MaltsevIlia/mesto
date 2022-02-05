@@ -131,6 +131,29 @@ function defaultCards () {
   });
 }
 
+//обработчик клика на оверлей
+function handleOverlayClick() {
+  document.querySelector('.popup_opened').classList.remove('popup_opened');
+}
+
+//функция закрытия попапа кликом на оверлей
+const closePopupOverlayClick = function (event) {
+  if (event.target !== event.currentTarget) {
+    return
+  }
+  handleOverlayClick();
+}
+
+//функция закрытия попапа нажатием на esc
+const closePopupOverlayEsc = function (event) {
+  if (event.key = 'Escape') {
+    handleOverlayClick()
+  }
+}
+
+overlayAddPic.addEventListener('click', closePopupOverlayClick);
+overlayImage.addEventListener('click', closePopupOverlayClick);
+overlayProfile.addEventListener('click', closePopupOverlayClick);
 openProfilePopupButton.addEventListener('click', () => openPopup(overlayProfile));
 openAddPicPopupButton.addEventListener('click', () => openPopup(overlayAddPic));
 closeProfilePopupButton.addEventListener('click', () => closePopup(overlayProfile));
@@ -138,5 +161,6 @@ closePlacePopupButton.addEventListener('click', () => closePopup(overlayAddPic))
 closeImagePopupButton.addEventListener('click', () => closePopup(overlayImage));
 profileForm.addEventListener('submit', profileChange);
 placeForm.addEventListener('submit', addCard);
+document.addEventListener('keydown', closePopupOverlayEsc)
 
 defaultCards ();

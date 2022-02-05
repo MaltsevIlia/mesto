@@ -146,7 +146,7 @@ const closePopupOverlayClick = function (event) {
 
 //функция закрытия попапа нажатием на esc
 const closePopupOverlayEsc = function (event) {
-  if (event.key = 'Escape') {
+  if (event.key === 'Escape') {
     handleOverlayClick()
   }
 }

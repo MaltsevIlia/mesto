@@ -1,16 +1,6 @@
-
-const popupConfig = {
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input-field',
-  inputErrorClass: 'popup__input-field_type_error',
-  submitButtonSelector: '.popup__submit-button',
-  submitButtonInactive: 'popup__submit-button_type_inactive'
-}
-
-
-function enableValidation(data) {
-  const formList = [...document.querySelectorAll(data.formSelector)];
-  formList.forEach(form => addFormListeners(form, data));
+function enableValidation(config) {
+  const formList = [...document.querySelectorAll(config.formSelector)];
+  formList.forEach(form => addFormListeners(form, config));
 };
 
 function addFormListeners(form, config) {
@@ -27,9 +17,9 @@ function handleSubmit(event) {
 
 function handleField(form, input, config) {
   if (input.validity.valid) {
-    hideError(form, input, config)
+    hideError(form, input, config.inputErrorClass)
   } else {
-    showError(form, input, config)
+    showError(form, input, config.inputErrorClass)
   }
 }
 
@@ -48,8 +38,15 @@ function hideError(form, input, config) {
 function changeSubmitButtonState(form, config) {
   const submitButton = form.querySelector(config.submitButtonSelector);
   submitButton.disabled = !form.checkValidity();
-  submitButton.classList.toggle(config.submitButtonInactive, !form.checkValidity())
+  submitButton.classList.toggle(config.inactiveButtonClass, !form.checkValidity())
 }
 
-enableValidation(popupConfig);
+enableValidation({
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input-field',
+  submitButtonSelector: '.popup__submit-button',
+  inactiveButtonClass: 'popup__submit-button_type_inactive',
+  inputErrorClass: 'popup__input-field_type_error',
+  errorClass: 'popup__input-error_active'
+});
 

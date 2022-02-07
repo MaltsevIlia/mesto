@@ -31,6 +31,8 @@ const popupImage = document.querySelector('.popup__image');
 const popupCaption = document.querySelector('.popup__image-title');
 //кнопки submit
 const submitButtons = [...document.querySelectorAll('.popup__submit-button')];
+const placeSubmitButton = document.querySelector('.popup__place-submit-button');
+const profileSubmitButton = document.querySelector('.popup__profile-submit-button');
 //открытый попап
 const openedPopup = document.querySelector('.popup_opened');
 //все попапы
@@ -93,9 +95,9 @@ function openPopup(popupType) {
 }
 
 //закртыие попапа
-function closePopup() {
+function closePopup(popupType) {
+  popupType.classList.remove(popupOpened);
   document.removeEventListener('keydown', handleEscKey);
-  document.querySelector('.popup_opened').classList.remove('popup_opened');
 }
 
 //функция инициализации карточек
@@ -115,11 +117,9 @@ function renderCard (card, cardsWrap) {
   cardsWrap.prepend(card)
 }
 
-function disableSubmitButton() {
-  submitButtons.forEach((item) => {
-    item.disabled = true;
-    item.classList.add('popup__submit-button_type_inactive');
-  });
+function disableSubmitButton(button) {
+  button.disabled = true;
+  button.classList.add('popup__submit-button_type_inactive');
 }
 
 // функция добавления карточек пользователем
@@ -127,9 +127,9 @@ function addCard (event) {
   event.preventDefault();
   const card = getCardElement(inputPlace.value, inputLink.value);
   renderCard (card, cardsWrap);
-  closePopup();
+  closePopup(overlayAddPic);
   placeForm.reset();
-  disableSubmitButton();
+  disableSubmitButton(placeSubmitButton);
 }
 
 //функция изменения профиля
@@ -137,9 +137,7 @@ function changeProfile(event) {
   event.preventDefault();
   profileName.textContent = inputName.value;
   profileAbout.textContent = inputAbout.value;
-  inputName.placeholder = profileName.textContent;
-  inputAbout.placeholder = profileAbout.textContent;
-  closePopup();
+  closePopup(overlayProfile);
 }
 
 //функция добавления дефолтных карточек
@@ -148,40 +146,29 @@ function renderDefaultCards () {
     const cardName = item.name;
     const cardImageLink = item.link;
     const cardContent = getCardElement(cardName, cardImageLink);
-    getCardElement(cardName, cardImageLink);
     cardsWrap.append(cardContent);
   });
-}
-
-//функция закрытия попапа кликом на оверлей
-const closePopupOverlayClick = function (event) {
-  if (event.target !== event.currentTarget || popupOpened) {
-    return
-  }
-  closePopup();
 }
 
 //функция закрытия попапа нажатием на esc
 const handleEscKey = function (event) {
   if (event.key === 'Escape') {
-    closePopup()
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup)
   }
 }
 
-popups.forEach((popup) => {
-  popup.addEventListener('mousedown', (evt) => {
+popups.forEach((popupType) => {
+  popupType.addEventListener('mousedown', (evt) => {
       if (evt.target.classList.contains('popup_opened')) {
-          closePopup();
+        closePopup(popupType);
       }
       if (evt.target.classList.contains('popup__close')) {
-        closePopup();
+        closePopup(popupType);
       }
   })
 })
 
-overlayAddPic.addEventListener('click', closePopupOverlayClick);
-overlayImage.addEventListener('click', closePopupOverlayClick);
-overlayProfile.addEventListener('click', closePopupOverlayClick);
 openProfilePopupButton.addEventListener('click', () => openPopup(overlayProfile));
 openAddPicPopupButton.addEventListener('click', () => openPopup(overlayAddPic));
 profileForm.addEventListener('submit', changeProfile);
